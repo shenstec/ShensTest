@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">lib_base</string>
+
+    <string name="cm_string_run_load_tip">请稍后...</string>
+</resources>
