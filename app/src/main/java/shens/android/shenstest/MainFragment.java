@@ -2,9 +2,8 @@ package shens.android.shenstest;
 
 import android.content.Intent;
 import android.os.Bundle;
-import shens.android.shenstest.R;
 
-import shens.android.lib_base.ui.BaseFragment;
+import shens.android.lib_base.ui.fragment.BaseFragment;
 
 public class MainFragment extends BaseFragment {
     @Override

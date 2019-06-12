@@ -4,6 +4,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
         
     }
     dependencies {
@@ -16,11 +17,18 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenCentral()
         google()
         jcenter()
         
     }
 }
+
+ext{
+    glide_version = '4.9.0'
+
+}
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

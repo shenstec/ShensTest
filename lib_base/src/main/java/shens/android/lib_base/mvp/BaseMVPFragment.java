@@ -1,11 +1,11 @@
-package shens.android.lib_base.ui.activity;
+package shens.android.lib_base.mvp;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import shens.android.lib_base.mvp.BasePresenter;
 import shens.android.lib_base.mvp.IView;
-import shens.android.lib_base.ui.BaseFragment;
+import shens.android.lib_base.ui.fragment.BaseFragment;
 
 public abstract class BaseMVPFragment <T extends BasePresenter> extends BaseFragment implements IView {
 

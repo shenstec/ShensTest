@@ -19,9 +19,8 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import shens.android.lib_base.ui.activity.BaseMvpActvity;
+import shens.android.lib_base.mvp.BaseMvpActvity;
 import shens.android.lib_http.bean.TopImageBean;
-import shens.android.shenstest.bean.UserInfo;
 import shens.android.shenstest.mvp.MainModel;
 import shens.android.shenstest.mvp.MainPresenter;
 

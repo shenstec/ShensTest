@@ -38,6 +38,7 @@ public class RetrofitFactory {
         return SingleFactory.retrofitFactory;
     }
 
+
     /**
      * 构造方法  通过代理模式进行对请求方法进行反射得到对象
      */

@@ -1,4 +1,4 @@
-package shens.android.lib_base.ui;
+package shens.android.lib_base.ui.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
