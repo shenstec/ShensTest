@@ -30,6 +30,7 @@ public class ImageUtils {
      */
     public static void displayImage(Context context, String url, ImageView imageView,int resId){
         Glide.with(context).load(url).placeholder(resId)
+                .error(resId)
                 .into(imageView);
     }
 

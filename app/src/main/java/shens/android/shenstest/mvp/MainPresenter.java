@@ -3,9 +3,9 @@ package shens.android.shenstest.mvp;
 import java.util.HashMap;
 import java.util.List;
 
+import shens.android.lib_base.http.HttpSubscribe;
 import shens.android.lib_base.mvp.BasePresenter;
-import shens.android.lib_http.HttpSubscribe;
-import shens.android.lib_http.bean.TopImageBean;
+import shens.android.shenstest.bean.TopImageBean;
 import shens.android.shenstest.App;
 
 /**
@@ -13,17 +13,12 @@ import shens.android.shenstest.App;
  * email ssl_java@163.com
  * site http://www.houziyou.com
  */
-public class MainPresenter extends BasePresenter<MainModel.View> {
+public class MainPresenter extends BasePresenter<MainModel.View,MainModel> {
 
-    private MainModel model ;
-    @Override
-    protected void createModel() {
-        model = new MainModel();
-    }
 
     public void getTopImage (){
         HashMap<String,String> map  = new HashMap<>();
-        model.getTopImage(map,getLifecyleProvide(),new HttpSubscribe<List<TopImageBean>>(App.getInstance(),true){
+        mModel.getTopImage(map,getLifecyleProvide(),new HttpSubscribe<List<TopImageBean>>(App.getInstance(),true){
 
 
             @Override
@@ -40,5 +35,8 @@ public class MainPresenter extends BasePresenter<MainModel.View> {
     }
 
 
-
+    @Override
+    protected MainModel createModel() {
+        return new MainModel();
+    }
 }

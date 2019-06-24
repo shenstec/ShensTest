@@ -1,6 +1,7 @@
 package shens.android.lib_base.mvp;
 
-import shens.android.lib_http.ApiService;
+import java.lang.reflect.ParameterizedType;
+
 import shens.android.lib_http.RetrofitFactory;
 
 /**
@@ -8,16 +9,18 @@ import shens.android.lib_http.RetrofitFactory;
  * email ssl_java@163.com
  * site http://www.houziyou.com
  */
-public class BaseModel {
+public class BaseModel<T> {
 
 
-    private ApiService apiService ;
+    private T apiService ;
 
-    public BaseModel(){
-        apiService = RetrofitFactory.getInstance().getApiService();
+
+
+    public BaseModel(String baseUrl){
+        apiService = (T) RetrofitFactory.getInstance((Class <T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0],baseUrl).getApiService();
     }
 
-    public ApiService getApiService() {
+    public T getApiService() {
         return apiService;
     }
 }

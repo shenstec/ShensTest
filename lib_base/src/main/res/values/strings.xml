@@ -2,4 +2,14 @@
     <string name="app_name">lib_base</string>
 
     <string name="cm_string_run_load_tip">请稍后...</string>
+
+    <!---网络请求-->
+    <string name="string_req_time_out">请求超时异常</string>
+    <string name="string_parse_data">解析异常</string>
+    <string name="string_permission_error">权限异常</string>
+    <string name="string_please_net_error">网络异常,请稍后再试</string>
+    <string name="string_connect_error">连接服务器异常</string>
+    <string name="string_not_net_error">请联网后再进行操作</string>
+    <string name="string_ssl_error">证书异常，请检查</string>
+    <string name="string_unknown_error">未知异常</string>
 </resources>

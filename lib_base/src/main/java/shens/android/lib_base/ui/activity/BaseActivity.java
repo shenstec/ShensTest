@@ -9,6 +9,7 @@ import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import shens.android.base.R;
+import shens.android.lib_base.utils.ToastUtils;
 
 /**
  * Created by shenshilei on 2019/4/22.
@@ -125,6 +126,10 @@ public abstract class BaseActivity extends RxAppCompatActivity {
         if (loadingDialog != null && loadingDialog.isShowing()) {
             loadingDialog.dismiss();
         }
+    }
+
+    protected void showShort(String msg){
+        ToastUtils.showShort(msg);
     }
 
 }

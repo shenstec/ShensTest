@@ -8,15 +8,17 @@ import com.trello.rxlifecycle2.LifecycleProvider;
  * email ssl_java@163.com
  * site http://www.houziyou.com
  */
-public abstract class BasePresenter<V extends IView> implements IPresenter<V> {
+public abstract class BasePresenter<V extends IView,M extends BaseModel> implements IPresenter<V> {
 
     private V mView;
+
+    protected M mModel;
 
     public BasePresenter(){
         createModel();
     }
 
-    protected abstract void createModel();
+    protected abstract M createModel();
 
     @Override
     public void attachView(V view) {

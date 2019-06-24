@@ -20,7 +20,7 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import shens.android.lib_base.mvp.BaseMvpActvity;
-import shens.android.lib_http.bean.TopImageBean;
+import shens.android.shenstest.bean.TopImageBean;
 import shens.android.shenstest.mvp.MainModel;
 import shens.android.shenstest.mvp.MainPresenter;
 
@@ -133,6 +133,7 @@ public class MainActivity extends BaseMvpActvity<MainPresenter> implements MainM
 
     @Override
     public void showError(String msg) {
+        super.showError(msg);
         hideLoadingDialog();
         tvMsg.setText("异常"+msg);
     }

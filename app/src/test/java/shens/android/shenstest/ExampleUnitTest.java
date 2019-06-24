@@ -1,5 +1,8 @@
 package shens.android.shenstest;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -126,6 +129,24 @@ public class ExampleUnitTest {
         System.out.print(num/100);
     }
 
+    private JsonArray jsonArray ;
+
+    @Test
+    public void teckTest(){
+        jsonArray = new JsonArray();
+        for(int i =0;i<10;i++){
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.addProperty("id",i);
+            jsonArray.add(jsonObject);
+        }
+        System.out.println(jsonArray.toString());
+        JsonArray jsns = jsonArray.deepCopy();
+        JsonObject jsonObject = (JsonObject) jsns.get(0);
+        jsonObject.addProperty("id",10);
+
+        System.out.print(jsonArray.toString());
+
+    }
 
 
 
