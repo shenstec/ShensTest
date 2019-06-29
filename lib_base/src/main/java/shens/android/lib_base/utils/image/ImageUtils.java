@@ -1,4 +1,4 @@
-package shens.android.lib_base.utils;
+package shens.android.lib_base.utils.image;
 
 import android.content.Context;
 import android.widget.ImageView;
