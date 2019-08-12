@@ -15,7 +15,7 @@ public abstract class BasePresenter<V extends IView,M extends BaseModel> impleme
     protected M mModel;
 
     public BasePresenter(){
-        createModel();
+        mModel = createModel();
     }
 
     protected abstract M createModel();

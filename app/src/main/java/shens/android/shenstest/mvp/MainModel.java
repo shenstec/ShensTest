@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 import shens.android.lib_base.http.HttpSubscribe;
 import shens.android.lib_base.http.RequestHelper;
 import shens.android.lib_base.http.bean.HttpResult;
@@ -30,7 +29,7 @@ public class MainModel extends BaseModel<ApiService> {
 
     public void getTopImage(HashMap<String,String> map, LifecycleProvider provider, HttpSubscribe<List<TopImageBean>> observer) {
         getApiService().getTest(map)
-                .compose(RequestHelper.<HttpResult<List<TopImageBean>>>applySchedulers(provider))
+                .compose(RequestHelper.applySchedulers(provider))
                 .subscribe(observer);
     }
 

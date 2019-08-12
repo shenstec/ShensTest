@@ -1,7 +1,6 @@
 package shens.android.shenstest;
 
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
@@ -10,19 +9,23 @@ import android.os.RemoteException;
 import android.util.Log;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 import shens.android.lib_base.mvp.BaseMvpActvity;
+import shens.android.lib_base.utils.SoftKeyBoardListener;
+import shens.android.lib_base.utils.ToastUtils;
 import shens.android.shenstest.bean.TopImageBean;
 import shens.android.shenstest.mvp.MainModel;
 import shens.android.shenstest.mvp.MainPresenter;
+import shens.android.shenstest.simple.pattern.factory.abstr.AudiTrunk;
+import shens.android.shenstest.simple.pattern.factory.abstr.ProduceFactory;
+import shens.android.shenstest.simple.pattern.factory.abstr.BmwTrunk;
+import shens.android.shenstest.simple.pattern.factory.abstr.Trunk;
+import shens.android.shenstest.utils.Test;
+import shens.android.shenstest.widget.SheetDialog;
 
 public class MainActivity extends BaseMvpActvity<MainPresenter> implements MainModel.View {
 
@@ -32,6 +35,7 @@ public class MainActivity extends BaseMvpActvity<MainPresenter> implements MainM
 
     @BindView(R.id.tv_main_msg)
     TextView tvMsg;
+
 
     @Override
     protected int getLayoutId() {
@@ -43,8 +47,23 @@ public class MainActivity extends BaseMvpActvity<MainPresenter> implements MainM
         showLoadingDialog();
         mPresenter.getTopImage();
 
-        Intent intent = new Intent(this, BookManagerService.class);
-        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+//        Factory factory = new ConcreateFractory();
+//
+//        Product product = factory.createProduct(ProductA.class);
+//        product.mecthod();
+
+        ProduceFactory factory = new ProduceFactory();
+        Trunk audiTrunk = factory.crateTrunk(AudiTrunk.class);
+        audiTrunk.run();
+
+        Trunk bmwTrunk = factory.crateTrunk(BmwTrunk.class);
+        bmwTrunk.run();
+
+        Test test = new Test();
+        test.mainTest();
+
+//        Intent intent = new Intent(this, BookManagerService.class);
+//        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
     }
 
 
@@ -73,41 +92,29 @@ public class MainActivity extends BaseMvpActvity<MainPresenter> implements MainM
     };
 
 
-
+    List<String> menus = new ArrayList<>();
     @OnClick(R.id.tv_main_msg)
     void onClick(){
-        startActivity(new Intent(this,SecondActivity.class));
+//        startActivity(new Intent(this,SecondActivity.class));
+//        menus.clear();
+//        menus.add("第一");
+//        menus.add("第二");
+//        menus.add("第三");
+//        menus.add("第四");
+
+//        SheetDialog sheetDialog = SheetDialog.buildDialog(this,menus);
+//        sheetDialog.setOnMenuSelect(new SheetDialog.OnMenuSelectListener() {
+//            @Override
+//            public void onSelect(int position) {
+//                ToastUtils.showShort(menus.get(position));
+//            }
+//        });
+//        sheetDialog.show();
     }
 
     @Override
     protected void initListener() {
 
-        Observable.create(new ObservableOnSubscribe<Object>() {
-            @Override
-            public void subscribe(ObservableEmitter<Object> emitter) throws Exception {
-
-            }
-        }).subscribe(new Observer<Object>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(Object o) {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
 
 
     }
@@ -147,6 +154,7 @@ public class MainActivity extends BaseMvpActvity<MainPresenter> implements MainM
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbindService(mConnection);
+//        if(mConnection!=null)
+//            unbindService(mConnection);
     }
 }

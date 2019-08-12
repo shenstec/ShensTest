@@ -8,9 +8,9 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import shens.android.lib_http.config.HttpConfig;
-import shens.android.lib_http.gson.GsonConverterFactory;
-import shens.android.lib_http.gson.GsonIntegerDefaultAdapter;
+import shens.android.lib_base.http.config.HttpConfig;
+import shens.android.lib_base.http.gson.GsonConverterFactory;
+import shens.android.lib_base.http.gson.GsonIntegerDefaultAdapter;
 
 /**
  * retrofit 工厂处理

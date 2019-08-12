@@ -44,7 +44,7 @@ public class RequestHelper {
      */
     private static <T> LifecycleTransformer<T> bindToLifecycle(LifecycleProvider provider) {
         if (provider instanceof RxAppCompatActivity) {
-            return ((RxAppCompatActivity) provider).bindUntilEvent(ActivityEvent.DESTROY);
+            return provider.bindUntilEvent(ActivityEvent.DESTROY);
         } else if (provider instanceof RxFragment) {
             return ((RxFragment) provider).bindUntilEvent(FragmentEvent.DESTROY);
         } else {

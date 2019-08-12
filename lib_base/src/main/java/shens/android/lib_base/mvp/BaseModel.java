@@ -2,7 +2,7 @@ package shens.android.lib_base.mvp;
 
 import java.lang.reflect.ParameterizedType;
 
-import shens.android.lib_http.RetrofitFactory;
+import shens.android.lib_base.http.RetrofitFactory;
 
 /**
  * Created by shenshilei on 2019/4/22.
